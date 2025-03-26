@@ -1,7 +1,10 @@
-document.getElementById("toggleMenu").addEventListener("click", function() {
-    let menu = document.getElementById("dropdownMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+document.addEventListener("DOMContentLoaded", function () {
 });
+    // Dropdown Menu Toggle
+    document.getElementById("toggleMenu").addEventListener("click", function () {
+        let menu = document.getElementById("dropdownMenu");
+        menu.classList.toggle("show"); // Ensure you have .show { display: block; } in CSS
+    });
 
 // Set the countdown target (e.g., 21 hours from now)
 let countdownTime = new Date();
