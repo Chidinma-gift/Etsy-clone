@@ -343,6 +343,11 @@ header {
     font-size: 16px;
     color: #444;
 }
+@media (max-width: 768px) {
+    .category-item img {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 /* Birthday Gifts Section */
 .birthday-gifts {
     text-align: center;
