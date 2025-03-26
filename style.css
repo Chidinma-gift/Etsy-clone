@@ -344,7 +344,7 @@ header {
     color: #444;
 }
 @media (max-width: 768px) {
-    .category-item img {
+    .category-item {
         grid-template-columns: repeat(2, 1fr);
     }
 }
