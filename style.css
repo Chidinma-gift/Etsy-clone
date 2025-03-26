@@ -1,3 +1,17 @@
+html, body {
+    overflow-x: hidden;
+}
+.categories-container, .gift-container, .deals-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .categories-container, .gift-container, .deals-container {
+        grid-template-columns: repeat(2, 1fr); /* Show 2 items per row */
+    }
+}
 /* Search Bar */
 .search-bar {
     display: flex;
@@ -20,14 +34,14 @@
     border-radius: 0 5px 5px 0;
     cursor: pointer;
 }
-.search-bar :hover{
+.search-bar button:hover{
     background-color: silver;
 
 }
 /* Fix Header Alignment */
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 10px 20px;
     background-color: white;
@@ -37,6 +51,32 @@ header {
     z-index: 1000;
     border-bottom: 1px solid #ddd;
 }
+.header-left,
+.header-right,
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+@media screan and (max-width:768px) {
+    header {
+        max-width: 900px;
+    }
+    .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-right {
+        display: none; /*Hide header links on small screens*/
+    }
+    .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+} 
+    
+
 
 /* Align Left Side (Logo & Categories) */
 .header-left {
@@ -52,6 +92,7 @@ header {
     max-width: 500px;
     color: coral;
 }
+
 
 /* Align Right Side (Sign In, Heart, Cart) */
 .header-right {
@@ -92,12 +133,12 @@ header {
     background: #f4f4f4;
 }
 /* Style the Navbar Container */
-.navbar_menu {
+.navbar__menu {
     display: flex;
     list-style: none;
     padding: 0;
     gap: 20px; /* Space between items */
-    /* justify-content: center; Align center */
+    justify-content: space-around;
     
 }
 
@@ -168,12 +209,29 @@ header {
     display: flex;
     gap: 20px;
     padding: 20px;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
 }
 
 .hero-left, .hero-right {
+    flex: 1;
+    text-align: center;
     position: relative;
     width: 45%;
+}
+.hero-left img, .hero-right img {
+    width: 100%;
+    height: auto;
+}
+
+@media  screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+    .hero-left, .hero-right {
+        width: 100%;
+    }
 }
 
 .hero img {
@@ -187,7 +245,7 @@ header {
 .hero-text {
     position: absolute;
     bottom: 20px;
-    left: 20px;
+    /* left: 20px; */
     color: white;
     background: rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -221,13 +279,19 @@ header {
     margin-top: 5px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-    }
-    .hero-left, .hero-right {
-        width: 100%;
+.hero button:hover {
+    background-color: #f4f4f4;
+    transform: scale(1.05);
+}
+.categories, .gifts, .deals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .categories, .gifts, .deals {
+        grid-template-columns: repeat(2, 1fr); /* Show 2 items per row */
     }
 }
 /* Popular Categories Section */
@@ -244,7 +308,7 @@ header {
 }
 
 /* Grid Container */
-.categories-container {
+.categories {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -293,7 +357,7 @@ header {
 }
 
 /* Horizontal Scrollable Container */
-.gift-container {
+.gifts {
     display: flex;
     overflow-x: auto;
     gap: 15px;
@@ -303,7 +367,7 @@ header {
     justify-content: center;
 }
 
-.gift-container::-webkit-scrollbar {
+.gifts::-webkit-scrollbar {
     display: none;
 }
 
@@ -476,6 +540,15 @@ header {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     transition: transform 0.3s ease;
+}
+.product-grid img, .product-grid video {
+    width: 100%;
+}
+@media screen and (max-width: 768px) {
+    .product-grid img, .product-grid video{
+        max-width: 100%;
+    }
+    
 }
 .product-grid :hover{
     transform: scale(1.05);
