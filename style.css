@@ -1,7 +1,7 @@
 html, body {
     overflow-x: hidden;
 }
-.categories-container, .gift-container, .deals-container {
+.categories, .gifts, .deals {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
